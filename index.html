@@ -615,27 +615,31 @@
                 loading="lazy"
               />
             </div>
-            <form action="https://formspree.io/f/mbdzqdae" method="POST">
+            <form id="contact-form" action="https://formspree.io/f/mbdzqdae" method="POST">
 
-              <input type="hidden" name="_subject" value="New Portfolio Message">
-              <input type="text" name="_gotcha" style="display:none">
+  <input type="hidden" name="_subject" value="New Portfolio Message">
+  <input type="text" name="_gotcha" style="display:none">
 
   <div class="form-field">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" required />
+    <label>Name</label>
+    <input type="text" name="name" required />
   </div>
 
   <div class="form-field">
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" required />
+    <label>Email</label>
+    <input type="email" name="email" required />
   </div>
 
   <div class="form-field">
-    <label for="message">How can I help you?</label>
-    <textarea name="message" id="message" required></textarea>
+    <label>Message</label>
+    <textarea name="message" required></textarea>
   </div>
 
   <button type="submit" class="btn btn-cta">Send</button>
+
+  <!-- Success message -->
+  <p id="form-status" style="margin-top:10px;"></p>
+
 </form>
           </div>
         </div>

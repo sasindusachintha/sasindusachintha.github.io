@@ -112,3 +112,31 @@ logosWrappers.forEach(async (logoWrapper, i) => {
 });
 
 yearEl.textContent = new Date().getFullYear();
+
+const form = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault(); // stop redirect
+
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      status.innerHTML = "✅ Message sent successfully!";
+      form.reset();
+    } else {
+      status.innerHTML = "❌ Oops! Something went wrong.";
+    }
+  } catch (error) {
+    status.innerHTML = "❌ Network error. Try again.";
+  }
+});
